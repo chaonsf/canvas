@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.erweima{
+				background: #ccc;
+				position: absolute;
+				right:-150px;
+				width: 200px;
+			}
+			
+			.erweima b{
+				position: absolute;
+				left: 54px;
+				top: 20px;
+				color: #fff;
+				margin-bottom:20px;
+				font-size: 20px;
+				
+			}
+			.yakangbao{
+				width: 180px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="erweima">
+			<img src="img/erweima.png"  class="aa"/><b>二维码</b>
+			<div>
+				<img src="img/yakangbao.png" class="yakangbao">
+				<div class="jiathis_style">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_icons_1"></a>
+	<a class="jiathis_button_icons_2"></a>
+	<a class="jiathis_button_icons_3"></a>
+	<a class="jiathis_button_icons_4"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+          </div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jq.js"></script>
+	<script>
+		function move(obj,attr,target){
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){
+				var speed=(target-parseInt(getStyle(obj,attr)))/8;
+				var speedInt=speed>0?Math.ceil(speed):Math.floor(speed);
+				if(parseInt(obj.style[attr])==target){
+					clearInterval(obj.timer);
+				}else{
+					obj.style[attr]=parseInt(getStyle(obj,attr))+speedInt+"px";
+				}
+			},50)
+		}
+		function getStyle(obj,attr){
+			if(obj.currentStyle){
+				return obj.currentStyle[attr];
+			}else{
+				return getComputedStyle(obj)[attr];
+			}
+			
+		}
+		 $(".aa").siblings().hide();
+        $('.erweima').on("mouseover",function(){
+        	 $(".aa").siblings().show();
+        	 move($(".erweima")[0],"right",0)
+        })
+		$('.erweima').on("mouseout",function(){
+        	 $(".aa").siblings().hide();
+        	 move($(".erweima")[0],"right",-150)
+        })
+		/*adiv.onmouseover=function(){
+			move(adiv,"right",0);
+		}
+		adiv.onmouseout=function(){
+			move(adiv,"right",-150)
+		
+		}*/
+	</script>
+</html>
+<!-- JiaThis Button BEGIN -->
+<!--<div class="jiathis_style">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_icons_1"></a>
+	<a class="jiathis_button_icons_2"></a>
+	<a class="jiathis_button_icons_3"></a>
+	<a class="jiathis_button_icons_4"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>-->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+<!-- JiaThis Button END -->

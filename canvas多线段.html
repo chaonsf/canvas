@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1024" height="768" style="border: solid 1px #aaa; display: block; margin: 50px auto;"></canvas>
+	</body>
+	<script>
+		 window.onload=function(){
+		 	var canvas=document.getElementById("canvas");
+		 	var context=canvas.getContext("2d");
+		 	//使用context绘制
+		 	context.beginPath();//用于多个路径分开处理
+		 	context.moveTo(100,100);//笔尖放在（100,100）的位置
+		 	context.lineTo(700,700);//终点为（700,700）
+		 	context.lineTo(100,700);
+		 	context.lineTo(100,100);
+		 	context.closePath(); //用于多个路径分开处理
+		 	 
+		 	context.lineWidth=5//线条的宽度
+		 	context.strokeStyle="red"//设置线条的颜色
+		 	context.stroke();//用于绘制线条
+		 	
+		 	
+		 	
+		 	context.beginPath();
+		 	context.moveTo(200,100);
+		 	context.lineTo(700,600);
+		 	context.closePath();
+		 	context.strokeStyle="#000";
+		 	context.stroke();
+		 	
+		 }
+	</script>
+</html>
